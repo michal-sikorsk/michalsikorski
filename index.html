@@ -30,16 +30,38 @@
   <img src="sikorski_old.jpg" style="width: 20%; height: 20%;">
   <img src="sikorski_ze_stalinem.jpg" style="width: 20%; height: 20%;">
   </p>
-  	<button onclick="changePageTitle()">
-		Change Page Title
-	</button>
+<button onclick="startChangingPageTitle()">
+    Change Page Title
+</button>
 
-	<script type="text/javascript">
-		function changePageTitle() {
-			newPageTitle = 'Komunikacja z demonem rozpoczęta';
-			document.title = newPageTitle;
-		}
-	</script>
+<script type="text/javascript">
+    var pageTitles = [
+        "DEMON przemawia",
+        "Strzeżcie się Sikorskiego",
+        "Komunikacja z demonem rozpoczęta",
+        "Znajdę cię"
+    ];
+    
+    var interval;
+    
+    function startChangingPageTitle() {
+        var counter = 0;
+        
+        interval = setInterval(function() {
+            document.title = pageTitles[counter];
+            counter++;
+            
+            if (counter === pageTitles.length) {
+                counter = 0;
+            }
+        }, 300);
+    }
+    
+    function stopChangingPageTitle() {
+        clearInterval(interval);
+    }
+</script>
+
   
   <h2></h2>
   <p>Ta strona jest poświęcona, Michałowi Sikorskiemu i jego tajnemu planowi podbicia świata.</p>
